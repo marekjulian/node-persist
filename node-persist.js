@@ -43,7 +43,7 @@ exports.init = function (userOptions) {
         if (exists) {
             //load data
             fs.readdir(options.dir, function (err, arr) {
-                for (var i in arr) {
+                for (var i = 0; i < arr.length; i++) {
                     var curr = arr[i];
                     if (curr[0] !== '.') {
                         parseFile(curr);
@@ -83,7 +83,7 @@ exports.initSync = function (userOptions) {
     var exists = fs.existsSync(options.dir);
     if (exists) { //load data
         var arr = fs.readdirSync(options.dir);
-        for (var i in arr) {
+        for (var i = 0; i < arr.length; i++) {
             var curr = arr[i];
             if (curr[0] !== '.') {
                 var json = fs.readFileSync(path.join(options.dir, curr),
